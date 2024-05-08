@@ -9,7 +9,7 @@ import shutil
 @task
 def order_robot():
     browser.configure(
-        slowmo=200,
+        slowmo=100,
     )
     open_robot_order()
     download_order_file()
@@ -97,7 +97,7 @@ def archive_receipt():
 
 def clean_up_folders():
     shutil.rmtree("output/receipt")
-    shutil.rmtree("output/receipt.zip")
+    shutil.rmtree("output/screenshot")
 
 
 
