@@ -30,6 +30,12 @@ def download_order_file():
         overwrite=True
     )
 
+def fill_form_with_csv_file():
+    tables=Tables()
+    order_table=tables.read_table_from_csv("orders.csv")
+    for order in order_table:
+        fill_order_form(order)
+
 def fill_order_form(order):
     page=browser.page()
     head_names={
@@ -66,11 +72,7 @@ def store_receipt_as_pdf(order_number):
     pdf.html_to_pdf(order_receipt,pdf_file_path)
     return pdf_file_path
 
-def fill_form_with_csv_file():
-    tables=Tables()
-    order_table=tables.read_table_from_csv("orders.csv")
-    for order in order_table:
-        fill_order_form(order)
+
 
 def store_receipt_as_screenshot(order_number):
     page=browser.page()
